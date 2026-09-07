@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: coin-bitru
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: PAYMENT_PROVIDER_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: CHANNEL_USERNAME
+        value: "@Coin_BitRu"
+      - key: CHANNEL_URL
+        value: "https://t.me/Coin_BitRu"
+      - key: DATABASE_URL
+        value: "sqlite+aiosqlite:///./data/coin_bitru.db"
+      - key: WEB_HOST
+        value: "0.0.0.0"
+      - key: WEB_PORT
+        value: "8080"
+      - key: WITHDRAW_TOPUP_MIN_USD
+        value: "2"
+      - key: WITHDRAW_MIN_USD
+        value: "1"
+      - key: COINS_PER_USD
+        value: "100000"
+      - key: REFERRAL_REWARD_COINS
+        value: "5000"
+      - key: REFERRAL_5_BONUS_USD
+        value: "5"
+      - key: TOURNAMENT_PRIZE_USD
+        value: "100"
