@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07111d" />
+  <title>Coin BitRu</title>
+  <link rel="stylesheet" href="/miniapp/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="/miniapp/assets/coin-emblem.png" alt="Coin BitRu" class="brand-logo" />
+        <div>
+          <div class="brand-title">Coin BitRu</div>
+          <div class="brand-subtitle">мини-приложение</div>
+        </div>
+      </div>
+      <button class="icon-btn" id="refreshBtn" aria-label="Обновить">↻</button>
+    </header>
+
+    <main>
+      <section class="profile-card">
+        <div class="profile-top">
+          <div class="avatar-wrap"><span id="avatarLetter">C</span></div>
+          <div class="profile-meta">
+            <div class="username-row"><strong id="username">User</strong><span class="verified">✓</span></div>
+            <div class="muted" id="userId">ID: —</div>
+            <div class="level-pill" id="levelPill">Базовый</div>
+          </div>
+          <div class="profile-actions"><button class="small-icon">◉</button><button class="small-icon">⚙</button></div>
+        </div>
+        <div class="balance-box">
+          <div>
+            <div class="muted">Общий баланс</div>
+            <div class="balance" id="balance">0</div>
+            <div class="balance-usd" id="balanceUsd">≈ $0.00</div>
+          </div>
+          <div class="sparkline"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <button class="primary-btn" id="topupBtn">＋ Пополнить</button>
+        </div>
+      </section>
+
+      <section class="quick-grid">
+        <button class="quick-card" data-view="topup"><span class="quick-icon">✈</span><span><b>Пополнить</b><small>Через Telegram</small></span></button>
+        <button class="quick-card" data-view="exchange"><span class="quick-icon">↔</span><span><b>Обмен</b><small>Купить / Продать</small></span></button>
+        <button class="quick-card" data-view="withdraw"><span class="quick-icon">◉</span><span><b>Вывод</b><small>На кошелёк</small></span></button>
+        <button class="quick-card" data-view="bonuses"><span class="quick-icon gift">🎁</span><span><b>Бонусы</b><small id="bonusCount">Доступно: 0</small></span></button>
+      </section>
+
+      <button class="promo-card" data-view="daily"><span class="quick-icon gift">🎁</span><span><b>Приветственный бонус</b><small>7-дневный вход — забирай награду каждый день</small></span><span class="arrow">›</span></button>
+
+      <section class="earn-card">
+        <div class="earn-head">
+          <div><div class="section-title">Тапай и зарабатывай</div><div class="muted">Энергия и уровень влияют на награду</div></div>
+          <button class="text-btn" id="upgradeBtn">Улучшить ›</button>
+        </div>
+        <div class="tap-zone">
+          <button class="coin-button" id="tapBtn"><img src="/miniapp/assets/coin-emblem.png" alt="coin"/><span>ТАП</span></button>
+          <div class="tap-stats"><div><span class="muted">За тап</span><strong id="perTap">+1</strong></div><div><span class="muted">Энергия</span><strong id="energy">100/100</strong></div><div><span class="muted">Уровень</span><strong id="tapLevel">1</strong></div></div>
+        </div>
+      </section>
+
+      <section class="market-card">
+        <div class="market-head"><div class="section-title">Рынок криптовалют</div><button class="text-btn">Все монеты ›</button></div>
+        <div class="tabs"><button class="tab active">Топ</button><button class="tab">Избранное</button><button class="tab">Фиат</button></div>
+        <div class="coin-row"><span class="mini-coin orange">₿</span><span><b>Bitcoin</b><small>BTC</small></span><strong>$68,432.17</strong><em>▲ +2.41%</em></div>
+        <div class="coin-row"><span class="mini-coin blue">Ξ</span><span><b>Ethereum</b><small>ETH</small></span><strong>$3,421.56</strong><em>▲ +3.12%</em></div>
+        <div class="coin-row"><span class="mini-coin green">₮</span><span><b>Tether</b><small>USDT</small></span><strong>$1.00</strong><em>▲ +0.01%</em></div>
+        <div class="coin-row"><span class="mini-coin yellow">B</span><span><b>BNB</b><small>BNB</small></span><strong>$589.24</strong><em>▲ +1.87%</em></div>
+        <div class="coin-row"><span class="mini-coin black">S</span><span><b>Solana</b><small>SOL</small></span><strong>$142.37</strong><em class="down">▼ -0.73%</em></div>
+      </section>
+
+      <section class="actions-list">
+        <button data-view="tasks"><span class="list-icon">✓</span><span><b>Задания</b><small>Канал, тап-цели и рефералы</small></span><span class="arrow">›</span></button>
+        <button data-view="refs"><span class="list-icon">👥</span><span><b>Рефералы</b><small>Награда + бонус за 5 приглашённых</small></span><span class="arrow">›</span></button>
+        <button data-view="leaders"><span class="list-icon">🏆</span><span><b>Лидеры</b><small>Топ пользователей</small></span><span class="arrow">›</span></button>
+        <button data-view="tournament"><span class="list-icon">💎</span><span><b>Турнир $100</b><small>Кто заработал больше COIN</small></span><span class="arrow">›</span></button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="home">⌂<span>Главная</span></button>
+      <button class="nav-btn" data-view="tasks">☷<span>Задания</span></button>
+      <button class="nav-btn" data-view="refs">♟<span>Рефералы</span></button>
+      <button class="nav-btn" data-view="leaders">♛<span>Лидеры</span></button>
+      <button class="nav-btn" data-view="profile">◎<span>Профиль</span></button>
+    </nav>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-sheet"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="/miniapp/app.js"></script>
+</body>
+</html>
