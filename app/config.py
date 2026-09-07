@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:///./data/coin_bitru.db"
     web_host: str = "0.0.0.0"
     web_port: int = 8080
+    miniapp_url: str = "https://coin-bitru-1.onrender.com/miniapp"
 
     @property
     def effective_web_port(self) -> int:

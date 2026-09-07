@@ -1,7 +1,9 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
+from .config import settings
 
 def main_kb():
     return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text='🚀 Открыть Coin BitRu', web_app=WebAppInfo(url=settings.miniapp_url))],
         [InlineKeyboardButton(text='⚡ Заработать', callback_data='tap')],
         [InlineKeyboardButton(text='🎁 7-дневный вход', callback_data='daily'), InlineKeyboardButton(text='⚡ Улучшение тапа', callback_data='upgrade')],
         [InlineKeyboardButton(text='✅ Задания', callback_data='tasks'), InlineKeyboardButton(text='👥 Рефералы', callback_data='refs')],
